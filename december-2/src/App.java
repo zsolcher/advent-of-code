@@ -17,6 +17,15 @@ public class App {
         System.out.println("Submarine position:" + submarine.getHorizontalPosition());
         System.out.println("Submarine depth:" + submarine.getDepth());
         System.out.println("AoC answer is:" + submarine.getDepth() * submarine.getHorizontalPosition());
+
+        LinkedList<String> submarineCourseForAimSub = getQueueFromFile(input);
+        Submarine submarineWithAim = new Submarine();
+        System.out.println("Starting submarine journey with aim!");
+        submarineWithAim.executeCoursePlanWithAim(submarineCourseForAimSub);
+        System.out.println("Submarine final position...");
+        System.out.println("Submarine position:" + submarineWithAim.getHorizontalPosition());
+        System.out.println("Submarine depth:" + submarineWithAim.getDepth());
+        System.out.println("AoC answer is:" + submarineWithAim.getDepth() * submarineWithAim.getHorizontalPosition());
     }
 
     public static LinkedList<String> getQueueFromFile(File file) {

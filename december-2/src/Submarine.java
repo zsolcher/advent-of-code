@@ -34,7 +34,28 @@ public class Submarine {
     }
 
     public void executeCoursePlanWithAim(LinkedList<String> coursePlan) {
-        // TODO
+        while(coursePlan.size() > 0) {
+            String[] currCommand = coursePlan.pollFirst().split(" ");
+            String commandType = currCommand[0];
+            Integer commandValue = Integer.parseInt(currCommand[1]);
+            switch(commandType) {
+                case "forward":
+                    horizontalPosition += commandValue;
+                    depth += (aim * commandValue);
+                    break;
+                case "down":
+                    aim += commandValue;
+                    break;
+                case "up":
+                    aim -= commandValue;
+                    break;
+                default:
+                    break;
+            }
+            // System.out.println("Submarine reached next checkpoint...");
+            // System.out.println("Submarine position:" + horizontalPosition);
+            // System.out.println("Submarine depth:" + depth);
+        }
     }
 
     public int getDepth() {
